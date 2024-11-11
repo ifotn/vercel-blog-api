@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 
 /* GET: /api/posts/5 */
 router.get('/:id', async (req, res) => {
-    console.log('get 1 called')
+    //console.log('get 1 called')
     try {
         const post = await Post.findById(req.params.id) //({ _id: req.params.id });
         console.log(post);
