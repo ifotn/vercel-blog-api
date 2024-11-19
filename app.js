@@ -45,7 +45,7 @@ app.use(cors({
 
 // passport config BEFORE routers
 app.use(session({
-    secret: process.env.PASSPORT_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: false
   }));
