@@ -68,7 +68,7 @@ let ExtractJWT = passportJWT.ExtractJwt;
 let jwtOptions = 
 {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.PASSPORT_SECRET
+  secretOrKey: process.env.SESSION_SECRET
 }
 
 // setup JWT Strategy

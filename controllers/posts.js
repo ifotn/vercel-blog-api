@@ -4,14 +4,6 @@ const Post = require('../models/post');
 
 /* GET: /api/posts */
 router.get('/', async (req, res) => {
-    /* callback syntax BEFORE mongoose 7 which is new
-    Post.find((err, posts) => {
-        if (err) {
-            res.json(err).status(400);
-        }
-        res.json(posts).status(200);
-    });*/
-    // new syntax w/o callback for mongoose 7 (march 2022)
     try {
         const posts = await Post.find().sort({'date': -1});
         return res.json(posts).status(200);
@@ -23,7 +15,6 @@ router.get('/', async (req, res) => {
 
 /* GET: /api/posts/5 */
 router.get('/:id', async (req, res) => {
-    //console.log('get 1 called')
     try {
         const post = await Post.findById(req.params.id) //({ _id: req.params.id });
         console.log(post);
