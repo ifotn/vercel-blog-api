@@ -18,7 +18,7 @@ const generateToken = (user) =>
         // Note: this may be made considerably shorter for security purposes
     };
 
-    return jwt.sign(payload, process.env.PASSPORT_SECRET, jwtOptions);
+    return jwt.sign(payload, process.env.SESSION_SECRET, jwtOptions);
 }
 
 const setTokenCookie = (res, token) => {
@@ -50,7 +50,7 @@ const verifyToken = (req) => {
         return 'undefined';
     }
     else {
-        const decode = jwt.verify(token, process.env.PASSPORT_SECRET);
+        const decode = jwt.verify(token, process.env.SESSION_SECRET);
         console.log('decode: ' + decode);
         return decode.username;
     }
