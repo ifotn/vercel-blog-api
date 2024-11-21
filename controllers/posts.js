@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
         jwt.verify(token, sessionSecret, (err, decoded) => {
             if (err) { return false; }
             req.user = decoded;
-            console.log(`decoded: ${decoded}`);
+            //console.log(`decoded: ${decoded}`);
             return true;
         })
     }
