@@ -37,9 +37,13 @@ const clearTokenCookie = (res) => {
     //res.cookie('authToken', '', {maxAge: 0});
     res.cookie('authToken', '', {
         httpOnly: true,
-        expires: new Date(0), // Set to a date in the past to expire the cookie
-      });
-    console.log(res.cookie('authToken'));
+        expires: new Date(0) // Set to a date in the past to expire the cookie
+    });
+    res.cookie('connect.sid', '', { 
+        httpOnly: true,
+        expires: new Date(0)
+    });
+    //console.log(res.cookie('authToken'));
 };
 
 const verifyToken = (req) => {
