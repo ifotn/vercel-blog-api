@@ -48,12 +48,12 @@ const verifyToken = (req) => {
     console.log('token: ' + token);
     if (!token) {
         console.log('token undefined');
-        return 'undefined';
+        return ({ success: false, msg: 'token undefined' });
     }
     else {
         const decode = jwt.verify(token, process.env.SESSION_SECRET);
         console.log('decode: ' + decode);
-        return decode.username;
+        return ({ success: true, msg: decode.username });
     }
 }
 
@@ -127,7 +127,7 @@ router.get('/logout', (req, res, next) => {
                 return res.status(400).json({msg: err});
             }
             else {    
-                //clearTokenCookie(res);
+                clearTokenCookie(res);
                 console.log('User Logged Out');
                 return res.status(200).json({success: true, msg: 'User Logged out Successfully'});
             }
