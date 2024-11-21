@@ -19,7 +19,7 @@ const isAuthenticated = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, sessionSecret);
-        console.log(`decoded: ${decoded}`);
+        //console.log(`decoded: ${decoded}`);
         req.user = decoded;
         next();
         // console.log(`token: ${token}`)
