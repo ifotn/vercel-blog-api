@@ -32,7 +32,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 }).then((res) => {
     console.log('Connected to MongoDB');
 }).catch((err) => {
-    console.log('Connection Failed');
+    console.log('Connect Attempt Failed');
 });
 
 // enable cors BEFORE including the controllers which need it
