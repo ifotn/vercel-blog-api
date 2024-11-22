@@ -37,8 +37,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 // enable cors BEFORE including the controllers which need it
 app.use(cors({
-    //origin: 'http://localhost:3000',
-    origin: 'https://blog-working-f24.vercel.app',
+    origin: process.env.CLIENT_DOMAIN,
     methods: 'GET,POST,PUT,DELETE,HEAD,OPTIONS',
     credentials: true,
     allowedHeaders: 'Content-Type,Authorization'
