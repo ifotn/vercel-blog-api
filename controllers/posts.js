@@ -68,7 +68,7 @@ router.post('/', auth, async(req, res) => {
     }
 })
 
-router.delete('/:_id', async (req, res) => {
+router.delete('/:_id', auth, async (req, res) => {
     try {
         // mongoose remove() deprecated in v7+
         const post = await Post.findByIdAndDelete(req.params._id);
@@ -79,7 +79,7 @@ router.delete('/:_id', async (req, res) => {
     }
 })
 
-router.put('/:_id', async (req, res) => {
+router.put('/:_id', auth, async (req, res) => {
     try {
         const post = await Post.findByIdAndUpdate(req.params._id, req.body);
         return res.json(post).status(202); // Accepted
