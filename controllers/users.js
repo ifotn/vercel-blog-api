@@ -26,7 +26,7 @@ const setTokenCookie = (res, token) => {
         httpOnly: true,
         secure: true, //process.env.NODE_ENV === 'production',
         sameSite: 'None',
-//        partitioned: true
+        partitioned: true
     });
 };
   
